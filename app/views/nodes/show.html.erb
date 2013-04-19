@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @node.id %>
+</p>
+
+<p>
+  <b>Followers count:</b>
+  <%= @node.followers_count %>
+</p>
+
+<p>
+  <b>Friends count:</b>
+  <%= @node.friends_count %>
+</p>
+
+<p>
+  <b>Statuses count:</b>
+  <%= @node.statuses_count %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%= @node.created_at %>
+</p>
+
+<p>
+  <b>Profile image url https:</b>
+  <%= @node.profile_image_url_https %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @node.description %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @node.location %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @node.name %>
+</p>
+
+<p>
+  <b>Protected:</b>
+  <%= @node.protected %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%= @node.group_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_node_path(@node) %> |
+<%= link_to 'Back', nodes_path %>

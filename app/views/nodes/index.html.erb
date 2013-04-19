@@ -1,0 +1,43 @@
+<h1>Listing nodes</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Followers count</th>
+    <th>Friends count</th>
+    <th>Statuses count</th>
+    <th>Created at</th>
+    <th>Profile image url https</th>
+    <th>Description</th>
+    <th>Location</th>
+    <th>Name</th>
+    <th>Protected</th>
+    <th>Group</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @nodes.each do |node| %>
+  <tr>
+    <td><%= node.id %></td>
+    <td><%= node.followers_count %></td>
+    <td><%= node.friends_count %></td>
+    <td><%= node.statuses_count %></td>
+    <td><%= node.created_at %></td>
+    <td><%= node.profile_image_url_https %></td>
+    <td><%= node.description %></td>
+    <td><%= node.location %></td>
+    <td><%= node.name %></td>
+    <td><%= node.protected %></td>
+    <td><%= node.group_id %></td>
+    <td><%= link_to 'Show', node %></td>
+    <td><%= link_to 'Edit', edit_node_path(node) %></td>
+    <td><%= link_to 'Destroy', node, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Node', new_node_path %>

@@ -1,0 +1,61 @@
+<%= form_for(@node) do |f| %>
+  <% if @node.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@node.errors.count, "error") %> prohibited this node from being saved:</h2>
+
+      <ul>
+      <% @node.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.number_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :followers_count %><br />
+    <%= f.number_field :followers_count %>
+  </div>
+  <div class="field">
+    <%= f.label :friends_count %><br />
+    <%= f.number_field :friends_count %>
+  </div>
+  <div class="field">
+    <%= f.label :statuses_count %><br />
+    <%= f.number_field :statuses_count %>
+  </div>
+  <div class="field">
+    <%= f.label :created_at %><br />
+    <%= f.date_select :created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :profile_image_url_https %><br />
+    <%= f.text_area :profile_image_url_https %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_area :location %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_area :name %>
+  </div>
+  <div class="field">
+    <%= f.label :protected %><br />
+    <%= f.check_box :protected %>
+  </div>
+  <div class="field">
+    <%= f.label :group_id %><br />
+    <%= f.number_field :group_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
