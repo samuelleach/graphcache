@@ -1,4 +1,7 @@
 Graphcache::Application.routes.draw do
+  resources :links
+
+
   resources :nodes
 
 
