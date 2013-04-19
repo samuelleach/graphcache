@@ -54,13 +54,15 @@ ActiveRecord::Schema.define(:version => 20130419143352) do
     t.string "breed", :limit => 256
   end
 
-  create_table "links", :force => true do |t|
+  create_table "links", :id => false, :force => true do |t|
     t.integer  "source_id"
     t.integer  "target_id"
     t.float    "strength"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "links", ["source_id", "target_id"], :name => "index_links_on_source_id_and_target_id", :unique => true
 
   create_table "moons", :force => true do |t|
     t.string   "name"
