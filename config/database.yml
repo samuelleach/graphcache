@@ -15,9 +15,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: graphcache_development
+  database: postgres
   pool: 5
-  username: graphcache
+  username: leach
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -43,7 +43,7 @@ test:
   encoding: unicode
   database: graphcache_test
   pool: 5
-  username: graphcache
+  username: leach
   password:
 
 production:
@@ -51,5 +51,5 @@ production:
   encoding: unicode
   database: graphcache_production
   pool: 5
-  username: graphcache
+  username: leach
   password:
