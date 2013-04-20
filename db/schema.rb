@@ -13,47 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130419143352) do
 
-  create_table "articles", :force => true do |t|
-    t.string   "title"
-    t.text     "arxiv_url"
-    t.date     "publication_date"
-    t.integer  "num_citations"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
-  create_table "articles_authors", :id => false, :force => true do |t|
-    t.integer "article_id"
-    t.integer "author_id"
-  end
-
-  add_index "articles_authors", ["article_id", "author_id"], :name => "index_articles_authors_on_article_id_and_author_id", :unique => true
-
-  create_table "authors", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "clients", :id => false, :force => true do |t|
-    t.integer "id",                  :null => false
-    t.string  "name", :limit => 256
-  end
-
-  create_table "destinations", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "trip_id"
-  end
-
-  create_table "dog", :force => true do |t|
-    t.string "name",  :limit => 256
-    t.text   "photo"
-    t.string "breed", :limit => 256
-  end
-
   create_table "links", :id => false, :force => true do |t|
     t.integer  "source_id"
     t.integer  "target_id"
@@ -63,15 +22,6 @@ ActiveRecord::Schema.define(:version => 20130419143352) do
   end
 
   add_index "links", ["source_id", "target_id"], :name => "index_links_on_source_id_and_target_id", :unique => true
-
-  create_table "moons", :force => true do |t|
-    t.string   "name"
-    t.integer  "planet_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "moons", ["planet_id"], :name => "index_moons_on_planet_id"
 
   create_table "nodes", :force => true do |t|
     t.integer  "followers_count"
@@ -85,34 +35,6 @@ ActiveRecord::Schema.define(:version => 20130419143352) do
     t.boolean  "protected"
     t.integer  "group_id"
     t.datetime "updated_at",              :null => false
-  end
-
-  create_table "planets", :force => true do |t|
-    t.string   "name"
-    t.text     "image"
-    t.float    "orbit"
-    t.float    "mass"
-    t.float    "diameter"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "todo", :force => true do |t|
-    t.string "item", :limit => 256
-  end
-
-  create_table "trips", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "video", :force => true do |t|
-    t.string "title",       :limit => 256
-    t.text   "description"
-    t.text   "url"
-    t.string "genre",       :limit => 256
   end
 
 end
