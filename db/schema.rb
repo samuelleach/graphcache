@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20130419143352) do
 
-  create_table "links", :id => false, :force => true do |t|
+  create_table "links", :force => true do |t|
     t.integer  "source_id"
     t.integer  "target_id"
     t.float    "strength"

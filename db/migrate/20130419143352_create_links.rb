@@ -1,6 +1,8 @@
 class CreateLinks < ActiveRecord::Migration
   def change
-    create_table :links, :id => false do |t|
+    # create_table :links, :id => false do |t|
+    create_table :links do |t|
+
       t.integer :source_id
       t.integer :target_id
       t.float :strength

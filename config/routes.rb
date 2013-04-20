@@ -2,7 +2,9 @@ Graphcache::Application.routes.draw do
   resources :links
 
 
-  resources :nodes
+  resources :nodes do
+    resources :links
+  end
 
 
   root to: 'nodes#index'
