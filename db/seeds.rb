@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+nodes = Node.create([{id: 19156507}, {id: 813286}])
+links = Link.create([{source_id: 19156507, target_id: 813286},
+					{source_id: 19156507, target_id: 354890673},
+					{source_id: 813286, target_id: 19156507},
+					{source_id: 354890673, target_id: 21155592}])
