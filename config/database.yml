@@ -15,7 +15,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: postgres
+  database: graphcache_development
   pool: 5
   username: leach
   password:
