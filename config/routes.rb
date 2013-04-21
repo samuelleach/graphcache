@@ -10,7 +10,7 @@ Graphcache::Application.routes.draw do
   end
 
 
-  root to: 'nodes#index'
+  root to: 'graphs#show'
 
 
   get '/graphs' => 'graphs#show'
