@@ -1,6 +1,9 @@
 Graphcache::Application.routes.draw do
   resources :links
 
+  #For development only
+  get '/test' => 'nodes#test_twitter'
+
 
   resources :nodes do
     resources :links

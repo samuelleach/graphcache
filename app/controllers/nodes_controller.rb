@@ -1,4 +1,10 @@
 class NodesController < ApplicationController
+  include MyTwitter
+
+  def test_twitter
+    render :text => say_tweet
+  end
+
   # GET /nodes
   # GET /nodes.json
   def index
