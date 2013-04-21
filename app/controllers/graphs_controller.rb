@@ -43,8 +43,14 @@ def d3data
 	@d3nodes = []
 	@nodeslookup.each do |key, value|
 		id = key
-		@node = Node.find(id)
-		@d3nodes <<  {size: @node[:followers_count]}
+		begin
+			@node = Node.find(id)
+			count = @node[:followers_count]
+		rescue
+			count = 1 # Need to edit this so that we provide info that there is no node info
+		end
+
+		@d3nodes <<  {size: count }
 		#@d3nodes <<  {size: 1}
 	end
 
