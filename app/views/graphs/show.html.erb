@@ -2,6 +2,12 @@
 
 </style>
 
+
+<div class="infobox">
+  <p>Here is where we will say something.</p>
+</div>
+
+
 <script>
     var data; // a global
     d3.json("/graphs/d3data.json", function(error, json) {
@@ -11,43 +17,54 @@
       nodes = data.nodes;
       links = data.links;
 
+
+    // this will be ran whenever we mouse over a circle
+      var myMouseOverFunction = function(d) {
+        var circle = d3.select(this);
+        //circle.attr("fill", "red");
+
+        // Show infobox div on mouseover.
+        // block means sorta "render on the page" whereas none would mean "don't render at all"
+        d3.select(".infobox").style("display", "block");  
+        // add test to p tag in infobox
+        // d3.select("p").text("This circle has a radius of " + circle.attr("r") + " pixels.");
+        d3.select("p").text("Number of followers: " + d.size);
+      }
+
+      var myPositionFunction = function() {
+        return Math.random() * w;
+      }
+      
+
+      var myMouseOutFunction = function() {
+        var circle = d3.select(this);
+       // circle.attr("fill", "steelblue" );
+        
+        d3.select(".infobox").style("display", "none"); 
+      }
+
+      // this should be called when the mouse is moved
+      // we will attach it to our svg area so that it detects mouse movement on our entire visualization
+      // we are trying to get the infobox to move with the mouse
+      var myMouseMoveFunction = function() {
+        // save selection of infobox so that we can later change it's position
+        var infobox = d3.select(".infobox");
+        // this returns x,y coordinates of the mouse in relation to our svg canvas
+        var coord = d3.svg.mouse(this)
+        // now we just position the infobox roughly where our mouse is
+        infobox.style("left", coord[0] + 15  + "px" );
+        infobox.style("top", coord[1] + "px");
+      }
+
+
       var w=600; 
       var h=600;
         fill = d3.scale.category20(),
-        // nodes = [
-        //   {"atom":"C", "size":12},
-        //   {"atom":"C", "size":12},
-        //   {"atom":"C", "size":12},
-        //   {"atom":"N", "size":7},
-        //   {"atom":"H", "size":1},
-        //   {"atom":"O", "size":16},
-        //   {"atom":"O", "size":16},
-        //   {"atom":"H", "size":1},
-        //   {"atom":"H", "size":1},
-        //   {"atom":"H", "size":1},
-        //   {"atom":"H", "size":1},
-        //   {"atom":"H", "size":1},
-        //   {"atom":"H", "size":1} 
-        // ],
-        // links = [
-        //   {"source":0, "target":1},
-        //   {"source":1, "target":2},
-        //   {"source":1, "target":3},
-        //   {"source":2, "target":5},
-        //   {"source":2, "target":6},
-        //   {"source":1, "target":4},
-        //   {"source":3, "target":10},
-        //   {"source":3, "target":11},
-        //   {"source":0, "target":7},
-        //   {"source":0, "target":8},
-        //   {"source":0, "target":9},
-        //   {"source":5, "target":12}
-        // ],
 
- 
       vis = d3.select("#graphcontainer").append("svg")
         .attr("width", w)
-        .attr("height", h),
+        .attr("height", h)
+        .on('mousemove', myMouseMoveFunction),
       
       force = d3.layout.force()
         .nodes(nodes)
@@ -79,7 +96,11 @@
           return fill(d.size);
           })
         .attr("stroke","black")
-        .attr("stroke-width",2);
+        .attr("stroke-width",2)
+//        .attr("cx", myPositionFunction)   
+//        .attr("cy", myPositionFunction) 
+        .on("mouseover", myMouseOverFunction)
+        .on("mouseout", myMouseOutFunction);
           
         // node.append("text")
         //   .attr("dx",function(d) {
