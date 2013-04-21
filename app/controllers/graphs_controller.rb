@@ -49,9 +49,7 @@ def d3data
 		rescue
 			count = 1 # Need to edit this so that we provide info that there is no node info
 		end
-
-		@d3nodes <<  {size: count }
-		#@d3nodes <<  {size: 1}
+		@d3nodes <<  {size: count, id: id, name: @node[:name] }
 	end
 
    	respond_to do |format|
