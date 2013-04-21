@@ -12,6 +12,9 @@ Graphcache::Application.routes.draw do
 
   get '/graphs' => 'graphs#show'
 
+
+  get '/graphs/d3data' => 'graphs#d3data'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
