@@ -1,5 +1,5 @@
 class NodesController < ApplicationController
-  include MyTwitter
+  include TwitterWrapper
 
   def test_twitter
     render :text => say_tweet
