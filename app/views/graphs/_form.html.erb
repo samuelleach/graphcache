@@ -1,0 +1,5 @@
+<%= form_tag("/nodes", :method => "get") do %>
+  <%= label_tag(:screen_name, "Search for Twitter user:") %>
+  <%= text_field_tag(:screen_name) %>
+  <%#= submit_tag("Search") %>
+<% end %>
