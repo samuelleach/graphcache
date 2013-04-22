@@ -48,8 +48,8 @@
       }
 
 
-      var w=600; 
-      var h=600;
+      var w=800; 
+      var h=400;
         fill = d3.scale.category20(),
 
       vis = d3.select("#graphcontainer").append("svg")
@@ -61,7 +61,7 @@
       force = d3.layout.force()
         .nodes(nodes)
         .links(links)
-        .charge(-1500)
+        .charge(-150)
         .friction(0.8)
         .gravity(0.9)
         .size([w,h])
