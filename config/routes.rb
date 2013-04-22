@@ -18,6 +18,9 @@ Graphcache::Application.routes.draw do
 
   get '/graphs/d3data' => 'graphs#d3data'
 
+  get '/friends' => 'graphs#friends'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
