@@ -1,5 +1,7 @@
 class GraphsController < ApplicationController
 
+include TwitterWrapper
+
 def show
 	@links = Link.all
 	@nodes = Node.all
@@ -49,13 +51,38 @@ def d3data
 		rescue
 			count = 1 # Need to edit this so that we provide info that there is no node info
 		end
-		@d3nodes <<  {size: count, id: id, name: @node[:name] }
+		@d3nodes <<  {size: count, id: id}#, name: @node[:name] }
 	end
 
    	respond_to do |format|
     	format.json { render json: {"nodes" => @d3nodes, "links" => @d3links }}#, "lookup" => @nodeslookup} }
    	end
 end
+
+def friends
+
+	screen_name = params[:screen_name]
+
+	user = Twitter.user(screen_name.to_s)
+
+	# render :json => user
+
+	cursor = -1
+	# ids = twitter_ids(user.id, "friends", cursor)
+	ids = twitter_ids(user.id, "followers", cursor)
+
+
+	# render :json => ids
+
+	ids.each do |id|
+		# link = Link.create(:source_id => user.id, :target_id => id)
+		link = Link.create(:source_id => id, :target_id => user.id)
+	end
+
+	redirect_to :root
+end
+
+
 
 
 
