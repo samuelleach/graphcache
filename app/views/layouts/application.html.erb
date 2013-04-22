@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,6 +83,12 @@
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript">
+      if (typeof d3 == 'undefined') {
+        document.write(unescape("%3Cscript src='/js/d3.v3.js' type='text/javascript'%3E%3C/script%3E"));
+      }
+    </script>
     <%= javascript_include_tag "application" %>
 
   </body>
