@@ -62,27 +62,34 @@ end
 def friends
 
 	screen_name = params[:screen_name]
-
 	user = Twitter.user(screen_name.to_s)
-
 	# render :json => user
 
 	cursor = -1
-	# ids = twitter_ids(user.id, "friends", cursor)
-	ids = twitter_ids(user.id, "followers", cursor)
-
-
+	ids = twitter_ids(user.id, "friends", cursor)
 	# render :json => ids
 
 	ids.each do |id|
-		# link = Link.create(:source_id => user.id, :target_id => id)
-		link = Link.create(:source_id => id, :target_id => user.id)
+		link = Link.create(:source_id => user.id, :target_id => id)
 	end
 
 	redirect_to :root
 end
 
+def followers
 
+	screen_name = params[:screen_name]
+	user = Twitter.user(screen_name.to_s)
+
+	cursor = -1
+	ids = twitter_ids(user.id, "followers", cursor)
+
+	ids.each do |id|
+		link = Link.create(:source_id => id, :target_id => user.id)
+	end
+
+	redirect_to :root
+end
 
 
 
