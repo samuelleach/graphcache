@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Link.destroy_all
+Node.destroy_all
 
 nodes = Node.create([{id: 19156507}, {id: 813286}])
 links = Link.create([{source_id: 19156507, target_id: 813286},
