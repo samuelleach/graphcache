@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130419143352) do
+ActiveRecord::Schema.define(:version => 20130423091501) do
 
   create_table "links", :force => true do |t|
     t.integer  "source_id"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(:version => 20130419143352) do
     t.boolean  "protected"
     t.integer  "group_id"
     t.datetime "updated_at",              :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "provide"
+    t.string   "uid"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

@@ -14,11 +14,14 @@ Graphcache::Application.routes.draw do
 
 
   get '/graphs' => 'graphs#show'
-
-
   get '/graphs/d3data' => 'graphs#d3data'
-
   get '/friends' => 'graphs#friends'
+
+
+  # Twitter authentication
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
 
 
   # The priority is based upon order of creation:
