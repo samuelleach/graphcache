@@ -1,5 +1,9 @@
 <%= form_tag("/followers", :method => "get") do %>
   <%= label_tag(:screen_name, "Search for Twitter user and their followers:") %>
   <%= text_field_tag(:screen_name) %>
-  <%#= submit_tag("Search") %>
+<% end %>
+
+<%= form_tag("/friends", :method => "get") do %>
+  <%= label_tag(:screen_name, "Search for Twitter user and their friends:") %>
+  <%= text_field_tag(:screen_name) %>
 <% end %>
