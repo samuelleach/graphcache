@@ -11,7 +11,7 @@
         d3.select(".infobox").style("display", "block");  
         d3.select("p").text("Number of followers: " + d.size +
                             ", Twitter ID: "+ d.id + 
-                            ", Screen Name: "+d.name);
+                            ", Name: "+d.name);
 
         d3.select("p").style("opacity", 0)
                       .transition()
