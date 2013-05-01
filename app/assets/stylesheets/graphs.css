@@ -2,7 +2,15 @@
   fill: steelblue;
   stroke: lightgray;
   stroke-width: 2px;
+  stroke-opacity: 0.7;
 }
+
+path.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
 
 .node circle {
   stroke: solid black 1px;
@@ -20,4 +28,14 @@
         padding: 10px;
         background-color: rgba(255,255,255,.75);
         border-radius: 10px;
+}
+
+body {
+background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyYWRpYWxHcmFkaWVudCBpZD0iZyI+PHN0b3Agb2Zmc2V0PSIwLjA3MzkxNyIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZjZmZiOCIvPjwvcmFkaWFsR3JhZGllbnQ+PHJlY3QgeD0iMCUiIHk9IjAlIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmNmZmI4IiAvPjxyZWN0IHg9IjAlIiB5PSItNDQuOTc2NiUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjE4OS45NTMzJSIgZmlsbD0idXJsKCNnKSIgLz48L3N2Zz4=);
+background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 407, color-stop(7.3917%, #ffffff), color-stop(100%, #fcffb8));
+background-image: -webkit-radial-gradient(center center, farthest-side circle, #ffffff 7.3917%, #fcffb8 100%);
+background-image: -moz-radial-gradient(center center, farthest-side circle, #ffffff 7.3917%, #fcffb8 100%);
+background-image: -ms-radial-gradient(center center, farthest-side circle, #ffffff 7.3917%, #fcffb8 100%);
+background-image: -o-radial-gradient(center center, farthest-side circle, #ffffff 7.3917%, #fcffb8 100%);
+background-image: radial-gradient(farthest-side circle at center center, #ffffff 7.3917%, #fcffb8 100%);
 }
