@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130423091501) do
     t.text     "description"
     t.text     "location"
     t.text     "name"
+    t.text     "screen_name"
     t.boolean  "protected"
     t.integer  "group_id"
     t.datetime "updated_at",              :null => false

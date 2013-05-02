@@ -10,6 +10,7 @@ class CreateNodes < ActiveRecord::Migration
       t.text :description
       t.text :location
       t.text :name
+      t.text :screen_name
       t.boolean :protected
       t.integer :group_id
 
