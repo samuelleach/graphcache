@@ -17,6 +17,7 @@ Graphcache::Application.routes.draw do
   get '/graphs/d3data' => 'graphs#d3data'
   get '/followers' => 'graphs#followers'
   get '/friends' => 'graphs#friends'
+  get '/id' => 'graphs#id'
 
   # Twitter authentication
   match 'auth/:provider/callback', to: 'sessions#create'

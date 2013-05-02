@@ -7,3 +7,8 @@
   <%= label_tag(:screen_name, "Search for Twitter user and their friends:") %>
   <%= text_field_tag(:screen_name) %>
 <% end %>
+
+<%= form_tag("/id", :method => "get") do %>
+  <%= label_tag(:id, "Search for Twitter user from their id:") %>
+  <%= text_field_tag(:id) %>
+<% end %>

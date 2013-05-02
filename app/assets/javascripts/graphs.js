@@ -6,23 +6,26 @@
       nodes = json.nodes;
       links = json.links;
 
+      var dblClickFunction = function(d) {
+        
+      }
+
       var mouseOverFunction = function(d) {
     
         infobox
           .style("display", "block")
           .select("p")
-          .text("Number of followers: " + d.size + ", Twitter ID: " + d.id + ", Name: " + d.name)
+          .text("Number of followers: " + d.size + ", Twitter ID: " + d.id + ", Name: " + d.name + ", Screen name: " + d.screen_name)
           .style("opacity", 0)
-          .transition()
-            .style("opacity", 1)
-          .duration(500);
+          .transition().duration(500)
+            .style("opacity", 1);
 
         node
           .transition(500)
             .style("opacity", function(o) {
               return isConnected(o, d) ? 1 : opacity;
             })
-          .style("fill", function(o) {
+            .style("fill", function(o) {
             if (isConnectedAsTarget(o, d) && isConnectedAsSource(o, d) ) {
               fillcolor = 'green';
             } else if (isConnectedAsSource(o, d)) {
@@ -178,7 +181,8 @@
         .attr("stroke","white")
         .attr("stroke-width",2.0)
         .on("mouseover", mouseOverFunction)
-        .on("mouseout", mouseOutFunction);
+        .on("mouseout", mouseOutFunction)
+        .on("dblclick", dblClickFunction);
 
       link
         .attr("class","link")

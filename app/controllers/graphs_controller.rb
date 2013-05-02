@@ -79,12 +79,14 @@ def d3data
 			@node = Node.find(id)
 			count = @node[:followers_count]
 			name = @node[:name]
+			screen_name = @node[:screen_name]
 		rescue
 			count = nodeinfo[:num_links_as_target]
 			name = ''
+			screen_name = ''
 		end
 
-		@d3nodes <<  {size: count, id: id , name: name,
+		@d3nodes <<  {size: count, id: id , name: name, screen_name: screen_name,
 					 num_links_as_source: nodeinfo[:num_links_as_source],
 					 num_links_as_target: nodeinfo[:num_links_as_target] }
 	end
@@ -127,6 +129,7 @@ def friends
 		node = Node.find_by_id(user.id) || Node.create(:id => user.id)
 		node = Node.update(user.id, :friends_count => ids.attrs[:ids].length)
 		node = Node.update(user.id, :name => user.name)
+		node = Node.update(user.id, :screen_name => screen_name)
 	end
 
 	ids.each do |id|
@@ -149,6 +152,7 @@ def followers
 		node = Node.find_by_id(user.id) || Node.create(:id => user.id)
 		node = Node.update(user.id, :followers_count => ids.attrs[:ids].length)
 		node = Node.update(user.id, :name => user.name)
+		node = Node.update(user.id, :screen_name => screen_name)
 	end
 
 	ids.each do |id|
@@ -158,6 +162,18 @@ def followers
 	redirect_to :root
 end
 
+def id
+
+	id = params[:id].to_i
+	user = Twitter.user(id)
+
+	node = Node.find_by_id(user.id) || Node.create(:id => user.id)
+	node = Node.update(user.id, :followers_count => user.followers_count)
+	node = Node.update(user.id, :name => user.name)
+	node = Node.update(user.id, :screen_name => user.screen_name)
+
+	redirect_to :root
+end
 
 
 end
