@@ -12,8 +12,8 @@
 
       var mouseOverFunction = function(d) {
     
-        infobox
-          .style("display", "block")
+        tooltip
+          .classed("hidden", false)
           .select("p")
           .text("Number of followers: " + d.size + ", Twitter ID: " + d.id + ", Name: " + d.name + ", Screen name: " + d.screen_name)
           .style("opacity", 0)
@@ -62,18 +62,8 @@
       var mouseOutFunction = function() {
         var circle = d3.select(this);
         
-        infobox
-          .style("display", "none"); 
-
-        // node
-        //   .transition().style("opacity", 1).duration(500);
-
-        link
-          .transition()
-            // .attr("marker-end","url()")
-            // .style("stroke-opacity", 1)
-            // .style("stroke-width",0.8)
-          // .duration(500);
+        tooltip
+          .classed("hidden", true);
 
         circle
           .transition()
@@ -83,7 +73,7 @@
 
       var mouseMoveFunction = function() {
         var coord = d3.mouse(this)
-        infobox
+        tooltip
           .style("left", coord[0] + 105  + "px" )
           .style("top", coord[1] + 30 + "px");
       }
@@ -191,6 +181,5 @@
       link
         .attr("marker-end", "url()");
 
-      var infobox = d3.select('.infobox');
-
+      var tooltip = d3.select('#tooltip');
   });
