@@ -47,8 +47,9 @@
           <a class="brand" href="/">GraphCache</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Nodes", nodes_path  %></li>
-              <li><%= link_to "Links", links_path  %></li>
+              <!-- <li><%= link_to "Nodes", nodes_path  %></li> -->
+              <!-- <li><%= link_to "Links", links_path  %></li> -->
+              <%= render :partial => 'graphs/form' %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
